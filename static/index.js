@@ -114,8 +114,12 @@ function gameInit() {
         id: "end"
     });
     createjs.Sound.registerSound({
-        src: "./static/music/tap.mp3",
-        id: "tap"
+        src: "./static/music/0.mp3",
+        id: "tap0"
+    });
+    createjs.Sound.registerSound({
+        src: "./static/music/1.mp3",
+        id: "tap1"
     });
     gameRestart();
 }
@@ -262,7 +266,7 @@ function gameTapEvent(e) {
         if (!_gameStart) {
             gameStart();
         }
-        createjs.Sound.play("tap");
+        createjs.Sound.play("tap" + Math.floor(Math.random() * 2));
         tar = document.getElementById(p.id);
         tar.className = tar.className.replace(_ttreg, ' tt$1');
         _gameBBListIndex++;
